@@ -3,7 +3,7 @@
   <app appid='lgpggmikjhnhgnjcpfdkdemfacehaloa'>
     <updatecheck
       crtminimumversion='0.0.0.0'
-      version='1.7'
-      url='https://Bruce893013240.github.io/Knotia-Search-Update-crx/knotia-1.7.crx' />
+      version='1.8'
+      url='https://Bruce893013240.github.io/Knotia-Search-Update-crx/knotia-1.8.crx' />
   </app>
 </gupdate>
