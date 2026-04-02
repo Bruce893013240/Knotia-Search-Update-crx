@@ -1,0 +1,185 @@
+/* searchbar.css — Knotia AI Search
+   Search bar replicates Chrome native Ctrl+F appearance.
+   TOC and body highlight styles for AI navigation guidance.
+   v1.1  2026-03-29  Spinner styles added
+   v1.6  2026-03-31  Full Chrome Ctrl+F visual replica
+*/
+
+/* ── Container: fixed top-right, matches native Ctrl+F position ── */
+#knotia-searchbar {
+  all: unset;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 8px;
+  height: 36px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-top: none;
+  border-radius: 0 0 0 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #333333;
+}
+
+/* ── Input ── */
+#knotia-input {
+  width: 230px;
+  height: 24px;
+  padding: 0 6px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #333333;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: none;
+}
+
+#knotia-input:focus {
+  border-color: #4d90fe;
+  box-shadow: 0 0 0 1px #4d90fe;
+}
+
+#knotia-input::placeholder {
+  color: #aaaaaa;
+  font-size: 12px;
+}
+
+/* ── Status text (e.g. "2 / 8") ── */
+#knotia-status {
+  min-width: 55px;
+  font-size: 12px;
+  color: #777777;
+  white-space: nowrap;
+  text-align: center;
+  padding: 0 2px;
+}
+
+/* ── Navigation buttons (▲▼) ── */
+#knotia-prev,
+#knotia-next {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 10px;
+  color: #555555;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+#knotia-prev:hover,
+#knotia-next:hover {
+  background-color: #f0f0f0;
+  border-color: #cccccc;
+}
+
+#knotia-prev:active,
+#knotia-next:active {
+  background-color: #e0e0e0;
+}
+
+#knotia-prev:disabled,
+#knotia-next:disabled {
+  color: #cccccc;
+  cursor: default;
+}
+
+/* ── Separator ── */
+#knotia-separator {
+  width: 1px;
+  height: 16px;
+  background-color: #dddddd;
+  margin: 0 2px;
+}
+
+/* ── Close button (✕) ── */
+#knotia-close {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  margin-left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #777777;
+  line-height: 1;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+#knotia-close:hover {
+  background-color: #f0f0f0;
+  border-color: #cccccc;
+  color: #333333;
+}
+
+/* ── Loading spinner ── */
+#knotia-spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #e0e0e0;
+  border-top-color: #4d90fe;
+  border-radius: 50%;
+  animation: knotia-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+#knotia-spinner.hidden {
+  display: none;
+}
+
+@keyframes knotia-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Body text highlight: exact Chrome Ctrl+F colours ── */
+mark.knotia-highlight {
+  background-color: #ffff00;
+  color: inherit;
+  border-radius: 0;
+  padding: 0;
+}
+
+mark.knotia-highlight.current {
+  background-color: #ff9632;
+  color: inherit;
+}
+
+/* ── TOC node highlight: pulsing amber guides user to click ── */
+.knotia-toc-highlight {
+  background-color: #fff3cd !important;
+  color: #856404 !important;
+  border-radius: 3px;
+  padding: 1px 4px !important;
+  font-weight: bold !important;
+  box-shadow: 0 0 0 2px #ffc107;
+  animation: knotia-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes knotia-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px #ffc107; }
+  50%       { box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.4); }
+}
