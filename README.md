@@ -163,4 +163,7 @@ API Key 仅存储在本地 Chrome 扩展存储中，只在向 AI 服务商（Ant
 ## Supported Sites · 支持的网站
 
 - `*.knotia.ca/*`
-- `*.myaccess.library.utoronto.ca/*` (University of Toronto library proxy)
+
+> 通过大学图书馆代理访问的用户，请确保最终落在 `knotia.ca` 域名下，插件才会生效。
+>
+> If you access Knotia through a university proxy, the extension only activates once you are on the `knotia.ca` domain.
